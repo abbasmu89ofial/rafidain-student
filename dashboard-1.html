@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بيانات الطالب - إعدادية رافدين</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #F4BE45;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+
+    .card h2 {
+      color: #54B8C2;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #F4BE45;
+      color: #000;
+    }
+
+    .fail {
+      color: red;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      table th, table td {
+        font-size: 14px;
+      }
+    }
+
+    .logo {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+
+    .student-info {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .student-info h3 {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://e.top4top.io/p_34909jjnx0.png" alt="لوجو" class="logo" />
+  <h1>إعدادية رافدين</h1>
+</header>
+
+<div class="container">
+
+  <div class="student-info">
+    <h3>الاسم: محمد علي عبدالحسين</h3>
+    <h3>الصف: السادس الإعدادي - أحيائي</h3>
+  </div>
+
+  <div class="card">
+    <h2>الكورس الأول</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>المادة</th>
+          <th>شهر 1</th>
+          <th>شهر 2</th>
+          <th>شهر 3</th>
+          <th>سعي الكورس الأول</th>
+          <th>نصف السنة</th>
+        </tr>
+      </thead>
+      <tbody id="course1-body">
+        <!-- سيتم ملء البيانات بواسطة جافاسكربت -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>الكورس الثاني</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>المادة</th>
+          <th>شهر 1</th>
+          <th>شهر 2</th>
+          <th>شهر 3</th>
+          <th>سعي الكورس الثاني</th>
+          <th>نهاية السنة</th>
+        </tr>
+      </thead>
+      <tbody id="course2-body">
+        <!-- سيتم ملء البيانات بواسطة جافاسكربت -->
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+  const data = {
+    student: {
+      name: "محمد علي عبدالحسين",
+      grade: "السادس الإعدادي - أحيائي"
+    },
+    subjects: [
+      { name: "الإسلامية", c1: [78, 82, 80, 85], c2: [81, 77, 84, 90] },
+      { name: "العربي", c1: [72, 69, 75, 80], c2: [76, 70, 68, 83] },
+      { name: "الإنكليزي", c1: [65, 70, 60, 75], c2: [68, 72, 69, 78] },
+      { name: "الكيمياء", c1: [85, 88, 90, 87], c2: [82, 85, 89, 91] },
+      { name: "الفيزياء", c1: [77, 79, 81, 83], c2: [80, 78, 82, 86] },
+      { name: "الأحياء", c1: [90, 92, 95, 96], c2: [91, 93, 94, 97] },
+      { name: "الرياضيات", c1: [60, 58, 62, 67], c2: [63, 65, 60, 70] }
+    ]
+  };
+
+  function fillTable(tableId, isCourse1 = true) {
+    const tbody = document.getElementById(tableId);
+    data.subjects.forEach(subject => {
+      const row = document.createElement("tr");
+
+      const t1 = isCourse1 ? subject.c1 : subject.c2;
+      const s1 = Math.round((t1[0] + t1[1] + t1[2]) / 3);
+      const finalExam = t1[3];
+
+      const td = txt => {
+        const cell = document.createElement("td");
+        cell.textContent = txt;
+        if (typeof txt === "number" && txt < 50) cell.classList.add("fail");
+        return cell;
+      };
+
+      row.appendChild(td(subject.name));
+      row.appendChild(td(t1[0]));
+      row.appendChild(td(t1[1]));
+      row.appendChild(td(t1[2]));
+      row.appendChild(td(s1));
+      row.appendChild(td(finalExam));
+      tbody.appendChild(row);
+    });
+  }
+
+  fillTable("course1-body", true);
+  fillTable("course2-body", false);
+</script>
+
+</body>
+</html>
