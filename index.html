@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - إعدادية رافدين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: url('https://najah.iq/assets/img/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.96);
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 30px 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .logo {
+            width: 90px;
+            margin-bottom: 15px;
+        }
+        h2 {
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #05445E;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #444;
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #F4BE45;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e0aa3f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://e.top4top.io/p_34909jjnx0.png" alt="شعار الإعدادية" class="logo">
+        <h2>تسجيل الدخول</h2>
+        <p>يُسعدنا أن نوفر لك هذه الخدمة الإلكترونية لعرض صفحة بياناتك بسهولة وسرعة. يرجى اختيار صفك الدراسي من القائمة أدناه ثم النقر على زر "تسجيل الدخول" للمتابعة.</p>
+        <select id="grade">
+            <option value="">اختر الصف الدراسي</option>
+            <option value="الرابع الإعدادي">الرابع الإعدادي</option>
+            <option value="الخامس">الخامس</option>
+            <option value="السادس">السادس</option>
+        </select>
+        <input type="text" id="code" placeholder="أدخل الكود">
+        <button onclick="login()">تسجيل الدخول</button>
+    </div>
+
+    <script>
+        function login() {
+            const grade = document.getElementById('grade').value;
+            const code = document.getElementById('code').value;
+            if (grade && code) {
+                window.location.href = 'dashboard_rafidain.html';
+            } else {
+                alert("يرجى اختيار الصف وإدخال الكود.");
+            }
+        }
+    </script>
+</body>
+</html>
