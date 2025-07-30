@@ -1,0 +1,46 @@
+
+body {
+  font-family: 'Tahoma', sans-serif;
+  background-image: url('https://k.top4top.io/p_3498f7ivx1.png');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 5% auto;
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+h2, h3 {
+  text-align: center;
+  color: #004080;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #000;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
