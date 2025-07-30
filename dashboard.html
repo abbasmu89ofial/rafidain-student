@@ -1,35 +1,0 @@
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>بيانات الطالب</title>
-</head>
-<body style="font-family: sans-serif; background: #e0f7fa; padding: 20px;">
-  <h2>مرحباً، <span id="studentName"></span></h2>
-  <p>الصف: <span id="studentClass"></span></p>
-  <p>الشعبة: <span id="studentSection"></span></p>
-  <p>الدرجات: <span id="studentGrades"></span></p>
-  <p>جدول الأسبوع:</p>
-  <ul id="studentSchedule"></ul>
-  <p style="margin-top:30px; font-weight: bold;">📢 رسالة الإدارة: نرجو الالتزام بالدوام والزي المدرسي.</p>
-
-  <script>
-    const studentData = JSON.parse(localStorage.getItem("studentData"));
-    if (studentData) {
-      document.getElementById("studentName").textContent = studentData.name;
-      document.getElementById("studentClass").textContent = studentData.class;
-      document.getElementById("studentSection").textContent = studentData.section;
-      document.getElementById("studentGrades").textContent = studentData.grades.join("، ");
-      const scheduleList = document.getElementById("studentSchedule");
-      studentData.schedule.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        scheduleList.appendChild(li);
-      });
-    } else {
-      document.body.innerHTML = "<h2>لا توجد بيانات</h2>";
-    }
-  </script>
-</body>
-</html>
